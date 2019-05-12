@@ -39,7 +39,6 @@ button:hover {
 
 input {
   border: 1px solid rgba(50, 50, 50, 0.5);
-  transition: 0.5s;
 }
 
 input:focus {
@@ -68,6 +67,10 @@ input:focus {
   align-items: center;
 }
 
+.form-container p {
+  color:#2AC41C
+}
+
 input,
 .form-container button {
   padding: 7px 11px;
@@ -82,4 +85,9 @@ input,
   font-weight: bold;
   border-radius: 5px;
   border: none;
+}
+
+.error {
+  font-size: 0.9em;
+  color: rgba(255,0,0,0.9);
 }

@@ -12,6 +12,13 @@ class Storage {
   }
 }
 
+export class UserSession extends Storage {
+  constructor() {
+    super(sessionStorage);
+    this._key = "usersession";
+  }
+}
+
 class LocalStorage extends Storage {
   constructor(key) {
     super(localStorage);
