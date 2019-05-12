@@ -15,7 +15,7 @@ class Storage {
 export class UserSession extends Storage {
   constructor() {
     super(sessionStorage);
-    this._key = "usersession";
+    this._key = 'usersession';
   }
 }
 
@@ -34,9 +34,9 @@ class LocalStorage extends Storage {
   }
 }
 
-export class Users extends LocalStorage {
-  constructor() {
-    super("users");
+export class User extends LocalStorage {
+  constructor(table) {
+    super(table);
   }
 
   addUser(data) {
@@ -54,3 +54,26 @@ export class Users extends LocalStorage {
     return this.getObject();
   }
 }
+
+export class Table extends LocalStorage {
+  constructor(table) {
+    super(table);
+  }
+
+  addToTable(data) {
+    const object = this.getObject();
+    object[generateId()] = data;
+    this.setObject(object);
+  }
+
+  getFromTable(id) {
+    const object = this.getObject();
+    return object[id];
+  }
+
+  getAllFromTable() {
+    return this.getObject();
+  }
+}
+
+const generateId = () => `${Math.floor(Math.random() * 100)}${Date.now()}${Math.floor(Math.random() * 100)}`;
