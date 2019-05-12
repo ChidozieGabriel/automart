@@ -140,3 +140,8 @@ form img {
   align-content: center;
   align-items: center;
 }
+
+textarea {
+  font-family: Arial;
+  font-size: small;
+}
