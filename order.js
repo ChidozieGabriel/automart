@@ -5,8 +5,13 @@ const users = new Table('users');
 const user = users.getFromTable(session.get());
 const carTable = new Table('cars');
 const cars = Object.values(carTable.getAllFromTable());
-const car = cars[cars.length - 1];
-const orders = new Table('orders');
+const car = cars[cars.length - 2]; // Random car
+const orderTable = new Table('orders');
+const orders = Object.values(orderTable.getAllFromTable());
+const order = orders.find(
+  obj => obj.orderId === user.id && obj.carId === car.id
+);
+
 const ownerNameSel = document.querySelector('[data-owner="name"]');
 const ownerEmailSel = document.querySelector('[data-owner="email"]');
 const modelSel = document.querySelector('[data-car="model"]');
@@ -22,9 +27,10 @@ const form = document.querySelector('[data-form="form"]');
 const buttonSel = document.querySelector('[data-form="button"]');
 const bidSel = document.querySelector('[data-form="bidprice"]');
 const formHandler = new FormHandler(form);
-const format = num => (+num).toFixed(2).replace(/(\d)(?=(\d{3})+(?!(\d)))/g, '$1 ');
+const format = num =>
+  (+num).toFixed(2).replace(/(\d)(?=(\d{3})+(?!(\d)))/g, '$1 ');
 const url = new URL(location.href);
-const isUpdate = url.searchParams.get('isUpdate');
+const isUpdate = url.searchParams.get('isUpdate') || !!order;
 
 if (isUpdate) buttonSel.textContent = 'Update Order';
 ownerNameSel.textContent = user.firstname + ' ' + user.lastname;
@@ -38,10 +44,11 @@ bodySel.textContent = car.bodytype || '-';
 mileageSel.textContent = (car.mileage && car.mileage + ' km') || '-';
 descriptionSel.textContent = car.description || '-';
 priceSel.textContent = '₦ ' + format(car.price);
-bidSel.value = car.price;
-
+bidSel.value = order && isUpdate ? order.bidprice : car.price;
+debugger;
 formHandler.addSubmitHandler(data => {
+  data.orderId = user.id;
   data.carId = car.id;
-  isUpdate ? orders.updateToTable(data) : orders.addToTable(data);
+  isUpdate ? orderTable.updateToTable(data) : orderTable.addToTable(data);
   setTimeout(() => (location.href = './index.html'));
 });

@@ -47,10 +47,6 @@ textarea:focus {
   justify-items: self-end;
 }
 
-.logo {
-  width: 70%;
-}
-
 .form-container {
   border-radius: 2px;
   padding: 16px 6px;
