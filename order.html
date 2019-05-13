@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./order.css" />
+    <title>Auto-Mart</title>
+  </head>
+  <body>
+    <div class="owner-container">
+      <h2>Owner Info</h2>
+      <div class="row">
+        <span class="th">Name:</span>
+        <span data-owner="name" class="td"></span>
+      </div>
+      <div class="row">
+        <span class="th">Email:</span>
+        <span data-owner="email" class="td"></span>
+      </div>
+    </div>
+    <div class="car-container">
+      <img data-car="image" src="./sample_car.png" alt="car image" />
+      <h2>Specifications</h2>
+      <table>
+        <tr>
+          <th>Make</th>
+          <td data-car="make"></td>
+        </tr>
+        <tr>
+          <th>Model</th>
+          <td data-car="model"></td>
+        </tr>
+        <tr>
+          <th>Year</th>
+          <td data-car="year"></td>
+        </tr>
+        <tr>
+          <th>Color</th>
+          <td data-car="color"></td>
+        </tr>
+        <tr>
+          <th>Body Type</th>
+          <td data-car="bodytype"></td>
+        </tr>
+        <tr>
+          <th>Mileage</th>
+          <td data-car="mileage"></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td data-car="description"></td>
+        </tr>
+        <tr>
+          <th>Price</th>
+          <td data-car="price"></td>
+        </tr>
+      </table>
+
+      <form data-form="form" class="form-container">
+        <h3>Contact</h3>
+        <input type="text" name="name" id="name" placeholder="Name" required />
+        <input type="email" name="email" id="email" placeholder="Email" required />
+        <label for="bidprice"><h3>Bid Price</h3></label>
+        <input data-form="bidprice" type="number" name="bidprice" id="bidprice" min="0" required />
+        <button type="submit">Place order</button>
+      </form>
+    </div>
+    <script type="module" src="./order.js"></script>
+  </body>
+</html>
