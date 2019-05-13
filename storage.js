@@ -14,7 +14,7 @@ class Storage {
 
 export class UserSession extends Storage {
   constructor() {
-    super(sessionStorage);
+    super(localStorage);
     this._key = 'usersession';
   }
 }
@@ -34,27 +34,6 @@ class LocalStorage extends Storage {
   }
 }
 
-export class User extends LocalStorage {
-  constructor(table) {
-    super(table);
-  }
-
-  addUser(data) {
-    const users = this.getObject();
-    users[data.email] = data;
-    this.setObject(users);
-  }
-
-  getUser(key) {
-    const users = this.getObject();
-    return users[key];
-  }
-
-  getAllUsers() {
-    return this.getObject();
-  }
-}
-
 export class Table extends LocalStorage {
   constructor(table) {
     super(table);
@@ -62,7 +41,9 @@ export class Table extends LocalStorage {
 
   addToTable(data) {
     const object = this.getObject();
-    object[generateId()] = data;
+    const id = generateId();
+    data.id = id;
+    object[id] = data;
     this.setObject(object);
   }
 
