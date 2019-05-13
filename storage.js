@@ -47,6 +47,12 @@ export class Table extends LocalStorage {
     this.setObject(object);
   }
 
+  updateToTable(data) {
+    const object = this.getObject();
+    object[data.id] = data;
+    this.setObject(object);
+  }
+
   getFromTable(id) {
     const object = this.getObject();
     return object[id];
