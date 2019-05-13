@@ -13,7 +13,7 @@ formHandler.addSubmitHandler(data => {
   }
   if (data.password.length <= 6) return (error_sel.textContent = '* password must be greater than 6!');
   if (data.password !== data.repassword) return (error_sel.textContent = '* password does not match');
-  users.addUser(data);
-  session.set(data.email);
+  users.addToTable(data);
+  session.set(data.id);
   location.replace('./index.html');
 });

@@ -11,11 +11,11 @@ formHandler.addSubmitHandler(data => {
   if (!data.email) return (error_sel.textContent = '* enter email');
   if (!data.password) return (error_sel.textContent = '* enter password');
   if (!isRegistered(data)) return (error_sel.textContent = '* user not registered!');
-  session.set(data.email);
+  session.set(data.id);
   setTimeout(() => (location.href = './index.html'));
 });
 
 const isRegistered = data => {
-  const user = users.getUser(data.email);
+  const user = users.getFromTable(data.id);
   return user && user.password === data.password;
 };
