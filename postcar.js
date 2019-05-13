@@ -22,7 +22,7 @@ reader.onloadend = () => {
 formHandler.addSubmitHandler(data => {
   if (!isCarImage) return (errorSel.textContent = '* no image selected!');
   data.image = imgSel.src;
-  data.owner = session.get();
+  data.ownerId = session.get();
   cars.addToTable(data);
   location.replace('./index.html');
 });
