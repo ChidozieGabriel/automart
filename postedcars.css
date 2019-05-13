@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #ddd;
+}
+h1,
+h2,
+h3 {
+  color: rgba(8, 37, 8, 0.9);
+  width: 100%;
+  text-align: center;
+}
+button:hover {
+  opacity: 0.9;
+}
+button {
+  width: 100%;
+  background: #1ae84a;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 2px;
+}
+.summary {
+  font-size: small;
+  padding: 5px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 240px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: white;
+  margin: 15px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.dummy {
+  display: none;
+}

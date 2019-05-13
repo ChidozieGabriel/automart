@@ -1,11 +1,11 @@
 export default class FormHandler {
   constructor(form) {
     this.form = form;
-    console.log("here");
+    console.log('here');
   }
 
   addSubmitHandler(cb) {
-    this.form.addEventListener("submit", e => {
+    this.form.addEventListener('submit', e => {
       e.preventDefault();
       const data = {};
       for (const elem of this.form) {
@@ -13,5 +13,19 @@ export default class FormHandler {
       }
       cb(data);
     });
+  }
+}
+
+export class ClickHandler {
+  constructor(selection) {
+    this._sel = selection;
+  }
+
+  addClickHandler(cb) {
+    for (const elem of this._sel) {
+      elem.addEventListener('click', function() {
+        cb(this);
+      });
+    }
   }
 }
