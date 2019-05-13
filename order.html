@@ -12,37 +12,57 @@
       <h2>Owner Info</h2>
       <div class="row">
         <span class="th">Name:</span>
-        <span class="td">Chidozie</span>
+        <span data-owner="name" class="td"></span>
       </div>
       <div class="row">
         <span class="th">Email:</span>
-        <span class="td">nnabugwuchidozie@gmail.com</span>
+        <span data-owner="email" class="td"></span>
       </div>
     </div>
     <div class="car-container">
-      <img src="./sample_car.png" alt="car image" />
+      <img data-car="image" src="./sample_car.png" alt="car image" />
       <h2>Specifications</h2>
       <table>
         <tr>
           <th>Make</th>
-          <td>Toyota</td>
+          <td data-car="make"></td>
         </tr>
         <tr>
           <th>Model</th>
-          <td>Corolla</td>
+          <td data-car="model"></td>
         </tr>
         <tr>
           <th>Year</th>
-          <td>2010</td>
+          <td data-car="year"></td>
+        </tr>
+        <tr>
+          <th>Color</th>
+          <td data-car="color"></td>
+        </tr>
+        <tr>
+          <th>Body Type</th>
+          <td data-car="bodytype"></td>
+        </tr>
+        <tr>
+          <th>Mileage</th>
+          <td data-car="mileage"></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td data-car="description"></td>
+        </tr>
+        <tr>
+          <th>Price</th>
+          <td data-car="price"></td>
         </tr>
       </table>
 
-      <form class="form-container">
+      <form data-form="form" class="form-container">
         <h3>Contact</h3>
-        <input type="text" name="name" id="name" placeholder="Name" />
-        <input type="email" name="email" id="email" placeholder="Email" />
+        <input type="text" name="name" id="name" placeholder="Name" required />
+        <input type="email" name="email" id="email" placeholder="Email" required />
         <label for="bidprice"><h3>Bid Price</h3></label>
-        <input type="number" name="bidprice" id="bidprice" />
+        <input data-form="bidprice" type="number" name="bidprice" id="bidprice" min="0" required />
         <button type="submit">Place order</button>
       </form>
     </div>
