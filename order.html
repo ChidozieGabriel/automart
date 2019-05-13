@@ -58,12 +58,9 @@
       </table>
 
       <form data-form="form" class="form-container">
-        <h3>Contact</h3>
-        <input type="text" name="name" id="name" placeholder="Name" required />
-        <input type="email" name="email" id="email" placeholder="Email" required />
         <label for="bidprice"><h3>Bid Price</h3></label>
         <input data-form="bidprice" type="number" name="bidprice" id="bidprice" min="0" required />
-        <button type="submit">Place order</button>
+        <button data-form="button" type="submit">Place order</button>
       </form>
     </div>
     <script type="module" src="./order.js"></script>
