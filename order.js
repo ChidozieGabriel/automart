@@ -5,6 +5,7 @@ const url = new URL(location.href);
 const user = userTable.getFromTable(session.get());
 const carId = url.searchParams.get('carId');
 const car = carTable.getFromTable(carId);
+const owner = userTable.getFromTable(car.ownerId);
 const orders = Object.values(orderTable.getAllFromTable());
 const order = orders.find(
   obj => obj.orderId === user.id && obj.carId === car.id
@@ -26,8 +27,8 @@ const buttonSel = document.querySelector('[data-form="button"]');
 const bidSel = document.querySelector('[data-form="bidprice"]');
 const formHandler = new FormHandler(form);
 if (isUpdate) buttonSel.textContent = 'Update Order';
-ownerNameSel.textContent = user.firstname + ' ' + user.lastname;
-ownerEmailSel.textContent = user.email;
+ownerNameSel.textContent = owner.firstname + ' ' + owner.lastname;
+ownerEmailSel.textContent = owner.email;
 imgSel.src = car.image;
 makeSel.textContent = car.make;
 modelSel.textContent = car.model;
