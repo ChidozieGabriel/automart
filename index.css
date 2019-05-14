@@ -53,6 +53,8 @@ button {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 0.8em;
+  height: 1.6em;
+  text-align: center;
 }
 img {
   height: 180px;
@@ -61,4 +63,5 @@ img {
   text-align: center;
   font-weight: bold;
   color: #083814;
+  padding-bottom: 5px;
 }
