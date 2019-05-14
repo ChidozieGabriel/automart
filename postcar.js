@@ -1,7 +1,5 @@
 import FormHandler from './formhandler.js';
-import { Table, UserSession } from './storage.js';
-const cars = new Table('cars');
-const session = new UserSession();
+import { carTable, session } from './storage.js';
 const FILE_SELECTOR = '[data-car="file"]';
 const fileSel = document.querySelector(FILE_SELECTOR);
 const IMAGE_SELECTOR = '[data-car="image"]';
@@ -23,7 +21,7 @@ formHandler.addSubmitHandler(data => {
   if (!isCarImage) return (errorSel.textContent = '* no image selected!');
   data.image = imgSel.src;
   data.ownerId = session.get();
-  cars.addToTable(data);
+  carTable.addToTable(data);
   location.replace('./index.html');
 });
 
