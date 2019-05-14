@@ -1,7 +1,5 @@
-import { UserSession, Table } from './storage.js';
+import { carTable } from './storage.js';
 import { ClickHandler } from './formhandler.js';
-const userId = new UserSession().get();
-const carTable = new Table('cars');
 const userCars = Object.values(carTable.getAllFromTable()).filter(
   car => car.ownerId === userId
 );
@@ -17,7 +15,7 @@ for (const car of userCars) {
   carImg.setAttribute('alt', 'car photo');
   const carSummary = document.createElement('span');
   carSummary.setAttribute('class', 'summary');
-  carSummary.textContent = `${car.color} ${car.model} ${car.make} ${car.year}`;
+  carSummary.textContent = `${car.color} ${car.make} ${car.model} ${car.year}`;
   const soldBtn = document.createElement('button');
   soldBtn.setAttribute('data-card', 'button');
   soldBtn.setAttribute('id', car.id);
